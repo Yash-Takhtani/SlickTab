@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(0, 37, 70);
+}
+#apod{
+    position:fixed;
+    opacity:0.6;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+#img_h1{
+    color: rgb(255, 255, 255);
+    justify-self: center;
+    font-family: 'Courier New', Courier, monospace;
+    position:relative;
+    top: 70vh;
+}
+#explanation{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    max-width: 75%;
+    justify-self: center;
+    position:relative;
+    top: 70vh;
+    font-size: 1.25vw;
+}
+#searchinp{
+    display: block;
+    justify-self: center;
+    align-items: center;
+    width: 50vw;
+    height: 7vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    padding: 0px 15px;
+    color:white;
+    font-size:1.5vw;
+}
