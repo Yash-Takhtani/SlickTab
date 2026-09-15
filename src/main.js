@@ -40,15 +40,15 @@ app.innerHTML += `
         </div>
 
         `
-        searchbtn = document.querySelector("#searchbutton");
-        searchbtn.addEventListener('click', () => {
-        console.log('Button was pressed!');
-        let inp = (document.querySelector("#searchinp").value.trim())
-        if (inp){
-            let query = encodeURIComponent(inp);
-            window.location.href = selectedSearchURL + query; 
-        }
-        })
+        app.addEventListener("click", function(event) {
+            if (event.target.closest("#searchbutton")) {
+                let inp = document.querySelector("#searchinp").value.trim();
+                if (inp) {
+                    let query = encodeURIComponent(inp);
+                    window.location.href = selectedSearchURL + query;
+                }
+            }
+        });
 })
 .then(() => {
     app.innerHTML += `
