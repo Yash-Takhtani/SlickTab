@@ -1,7 +1,7 @@
 const API_key = import.meta.env.VITE_APOD_API;
 
 const app = document.querySelector("#app");
-const body = document.querySelector("body");
+// const body = document.querySelector("body");
 let selectedSearchURL = "https://www.google.com/search?q=" 
 
 let searchbtn;
@@ -20,6 +20,7 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_key}`)
     }
     app.innerHTML += `
     ${content}
+    <h1 id="title">Slick Tab</h1>
     <h1 id="img_h1">${data.title}</h1>
     <p id="explanation">${data.explanation}</p>`;
     console.log(data);
@@ -37,6 +38,7 @@ app.innerHTML += `
         <input autocomplete="off" type="text" id="searchinp" placeholder="Search ..."></input>
         <button id="searchbutton"><img id="searchimage" src="https://www.pixsector.com/cache/e7836840/av6584c34aabb39f00a10.png"></img></button>
         </div>
+
         `
         searchbtn = document.querySelector("#searchbutton");
         searchbtn.addEventListener('click', () => {
@@ -47,6 +49,15 @@ app.innerHTML += `
             window.location.href = selectedSearchURL + query; 
         }
         })
+})
+.then(() => {
+    app.innerHTML += `
+    <div id="shortcutstab">
+        <a href="https://stardance.hackclub.com/" class="shortcutlinks"><img class="shortcutimg" src="https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://stardance.hackclub.com/&size=64" alt="">Stardance</a>
+        <a href="https://youtube.com" class="shortcutlinks"><img class="shortcutimg" src="https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.youtube.com&size=64" alt="">Youtube</a>
+        <a href="https://chess.com" class="shortcutlinks"><img class="shortcutimg" src="https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.chess.com&size=64" alt="">Chess</a>
+    </div>
+    `
 })
 .catch(err => {
     document.querySelector("#app").innerHTML += `<p>Error: ${err.message}</p>`;
